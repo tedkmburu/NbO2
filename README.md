@@ -48,7 +48,6 @@
     </li>
     <li><a href="#roadmap">Creating an IV Curve</a></li>
     <li><a href="#contributing">Filtering Data</a></li>
-    <li><a href="#license">Filtered IV Curve</a></li>
     <li><a href="#contact">Finding Threshold and Hold Voltages</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -206,6 +205,22 @@ Result:
 <img src="rawData.svg">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+## Finding Threshold and Hold Voltages
+This is one of the most important parts of the analysis. 
+
+A threshold voltage can be found when the current starts at 0 A and the starts heading towards the max value. This happens twice per oscilation of the voltage. After passing a certain threshold, the current will rapidly increase to the max. 
+
+A hold voltage can be found when the current starts at the max value and ends at 0 A. The current will hold on to a large value until it reaches a certain point then it will rapidly decrease. 
+
+Both the threshold and hold voltages in each oscillation exist when the 2nd derivative is at its highest value. 
+
+We need to break up the all the data in the filtered graph above into individual oscilations. After doing this, we should group all sections with threshold voltages together and all sections with hold voltages together. We will find the point of inflection of each oscillation in each group then average them to get a good approximation for the threshold and hold voltages for the entire device. 
+
+we need to find the index of the points of inflection in the current array then match that index to its respective voltage. This will give us 
 
 <!-- GETTING STARTED -->
 ## Getting Started
